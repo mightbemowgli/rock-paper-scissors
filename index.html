@@ -10,7 +10,7 @@
     <script>
 // use prompt to receive playerSelection input
 // playerSelection parameter should be case insensitive
-function userInput() {
+function getUserChoice() {
     let playerSelection = prompt("Choose your weapon.");
     playerSelection = playerSelection.toLowerCase();
     if (playerSelection === 'rock' ||
@@ -21,13 +21,25 @@ function userInput() {
             console.log('Please choose rock, paper, or scissors.');
         }
 }
-console.log(userInput());
+console.log(getUserChoice());
 
 // create function getComputerChoice that returns rock, paper, or scissors
-Math.floor(Math.random() * 3);
+function getComputerChoice() {
+    computerSelection = Math.floor(Math.random() * 3);
+    if (computerSelection === 0) {
+        return 'rock';
+    } else if (computerSelection === 1) {
+        return 'paper';
+    } else if (computerSelection === 2) {
+        return 'scissors';
+    }
+}
+console.log(getComputerChoice());
+
+
+
 // create function playRound that plays a single round 
 // use two parameters - playerSelection and computerSelection
-        
 // return a string that declares the winner
 // return the results of the function
 // create function game that runs previous function within to play a five round game
