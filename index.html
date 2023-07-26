@@ -36,12 +36,48 @@ function getComputerChoice() {
 }
 console.log(getComputerChoice());
 
-
-
 // create function playRound that plays a single round 
 // use two parameters - playerSelection and computerSelection
 // return a string that declares the winner
 // return the results of the function
+function determineWinner(playerSelection, computerSelection) {
+    if (playerSelection === computerSelection) {
+        return 'The game is a tie.';
+    }
+    if (playerSelection === 'rock') {
+        if (computerSelection === 'paper') {
+            return 'The computer won.';
+        } else {
+            return 'You won!';
+        }
+    }
+    if (playerSelection === 'paper') {
+        if (computerSelection === 'scissors') {
+            return 'The computer won.';
+        } else {
+            return 'You won!';
+        }
+    }
+    if (playerSelection === 'scissors') {
+        if (computerSelection === 'rock') {
+            return 'The computer won.';
+        } else {
+            return 'You won!';
+        }
+    }
+}
+
+function playRound() {
+    let playerSelection = getUserChoice();
+    let computerSelection = getComputerChoice();
+    console.log('You picked: ' + playerSelection);
+    console.log('The computer picked: ' + computerSelection);
+    console.log(determineWinner(playerSelection, computerSelection));
+}
+
+playRound();
+
+
 // create function game that runs previous function within to play a five round game
     </script>
 </body>
