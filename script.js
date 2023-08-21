@@ -46,10 +46,10 @@ function playRound(playerSelection) {
             disableButtons();
         }
     }
-    scoreInfo.innerHTML = `${roundWinner}`;
-    scoreMessage.innerHTML = `${roundMessage}`;
-    playerScoreDisplay.innerHTML = `Player: ${playerScore}`;
-    computerScoreDisplay.innerHTML = `Computer: ${computerScore}`;
+    scoreInfo.textContent = `${roundWinner}`;
+    scoreMessage.textContent = `${roundMessage}`;
+    playerScoreDisplay.textContent = `Player: ${playerScore}`;
+    computerScoreDisplay.textContent = `Computer: ${computerScore}`;
 }
 
 function updateSign(playerSelection, computerSelection) {
