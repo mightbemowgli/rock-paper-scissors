@@ -3,10 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
     <h1>Rock Paper Scissors</h1>
+    <h2>Choose your weapon:</h2>
+    <div class="buttons">
+        <button class="btn" id="rock"><span>&#9994;</span></button>
+        <button class="btn" id="paper"><span>&#9995;</span></button>
+        <button class="btn" id="scissors"><span>✌️</span></button>
+    </div>
     <script>
 // use prompt to receive playerSelection input
 // playerSelection parameter should be case insensitive
@@ -76,9 +86,6 @@ function playRound() {
 }
 
 playRound();
-
-
-// create function game that runs previous function within to play a five round game
     </script>
 </body>
 </html>
