@@ -12,16 +12,16 @@
     </header>
     <main class="main">
         <div class="scoreboard">        
-            <h2>Choose your weapon:</h2>
-            <h3>First to five points wins!</h3>
+            <h2 class="score-info" id="score-info">Choose your weapon:</h2>
+            <h3 class="score-message" id="score-message">First to five points wins!</h3>
             <div class="score-container">
                 <div class="scorebox">
-                    <div class="sign" id="playerSign">?</div>
-                    <p class="score" id="playerScore">Player: 0</p>
+                    <div class="sign" id="player-sign">?</div>
+                    <p class="score" id="player-score">Player: 0</p>
                 </div>
                 <div class="scorebox">
-                    <div class="sign" id="computerSign">?</div>
-                    <p class="score" id="computerScore">Computer: 0</p>
+                    <div class="sign" id="computer-sign">?</div>
+                    <p class="score" id="computer-score">Computer: 0</p>
                 </div>
             </div>
         </div>
@@ -31,6 +31,16 @@
             <button class="btn" id="scissors"><span>✌️</span></button>
         </div>
     </main>
-<script src="script.js"></script>
+<script src="script.js">
+        // let playerSelection = prompt("Choose your weapon.");
+    // playerSelection = playerSelection.toLowerCase();
+    // if (playerSelection === 'rock' ||
+    //     playerSelection === 'paper' ||
+    //     playerSelection === 'scissors') {
+    //         return playerSelection;
+    //     } else {
+    //         console.log('Please choose rock, paper, or scissors.');
+    //     }
+</script>
 </body>
 </html>

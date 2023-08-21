@@ -1,23 +1,11 @@
 let playerScore = 0;
 let computerScore = 0;
 let roundWinner = '';
-
-// add event listner to the buttons that call playRound with the correct playerSelection
-function getUserChoice() {
-    let playerSelection = prompt("Choose your weapon.");
-    playerSelection = playerSelection.toLowerCase();
-    if (playerSelection === 'rock' ||
-        playerSelection === 'paper' ||
-        playerSelection === 'scissors') {
-            return playerSelection;
-        } else {
-            console.log('Please choose rock, paper, or scissors.');
-        }
-}
+const buttons = document.querySelectorAll('button');
 
 function getComputerChoice() {
-    computerSelection = Math.floor(Math.random() * 3);
-    switch (computerSelection) {
+    const choices = Math.floor(Math.random() * 3);
+    switch (choices) {
         case 0:
             return 'rock';
         case 1:
@@ -27,48 +15,30 @@ function getComputerChoice() {
     }
 }
 
-function determineWinner(playerSelection, computerSelection) {
+function playRound(playerSelection) {
+    const computerSelection = getComputerChoice();
     if (playerSelection === computerSelection) {
-        return 'The game is a tie.';
+        roundWinner = 'tie';
     }
-    if (playerSelection === 'rock') {
-        if (computerSelection === 'paper') {
-            roundWinner = 'computer';
-            computerScore++;
-        } else {
-            roundWinner = 'player';
+    else if (playerSelection === 'rock' && computerSelection === 'scissors' ||
+        playerSelection === 'paper' && computerSelection === 'rock' ||
+        playerSelection === 'scissors' && computerSelection === 'paper') {
             playerScore++;
-        }
-    }
-    if (playerSelection === 'paper') {
-        if (computerSelection === 'scissors') {
-            roundWinner = 'computer';
-            computerScore++;
-        } else {
             roundWinner = 'player';
-            playerScore++;
         }
+    else {
+        computerScore++;
+        roundWinner = 'computer';
     }
-    if (playerSelection === 'scissors') {
-        if (computerSelection === 'rock') {
-            roundWinner = 'computer';
-            computerScore++;
-        } else {
-            roundWinner = 'player';
-            playerScore++;
-        }
-    }
+    console.log(playerSelection);
+    console.log(computerSelection);
     console.log(roundWinner);
     console.log(playerScore);
     console.log(computerScore);
 }
 
-function playRound() {
-    let playerSelection = getUserChoice();
-    let computerSelection = getComputerChoice();
-    console.log('You picked: ' + playerSelection);
-    console.log('The computer picked: ' + computerSelection);
-    console.log(determineWinner(playerSelection, computerSelection));
-}
-
-playRound();
+buttons.forEach(button => {
+    button.addEventListener('click', function(){
+        playRound(button.id);
+    })
+})
