@@ -1,40 +1,80 @@
 let playerScore = 0;
 let computerScore = 0;
 let roundWinner = '';
+let roundMessage = '';
 const buttons = document.querySelectorAll('button');
+const scoreInfo = document.getElementById('score-info');
+const scoreMessage = document.getElementById('score-message');
+const playerSign = document.getElementById('player-sign');
+const computerSign = document.getElementById('computer-sign');
+const playerScoreDisplay = document.getElementById('player-score');
+const computerScoreDisplay = document.getElementById('computer-score');
+
+function disableButtons() {
+    buttons.forEach(elem => {
+        elem.disabled = true
+    })
+}
 
 function getComputerChoice() {
-    const choices = Math.floor(Math.random() * 3);
-    switch (choices) {
-        case 0:
-            return 'rock';
-        case 1:
-            return 'paper';
-        case 2:
-            return 'scissors';
-    }
+    const choices = ['rock', 'paper', 'scissors']
+    return choices[Math.floor(Math.random() * 3)];
 }
 
 function playRound(playerSelection) {
     const computerSelection = getComputerChoice();
+    updateSign(playerSelection, computerSelection);
+
     if (playerSelection === computerSelection) {
-        roundWinner = 'tie';
+        roundWinner = 'It\'s a tie!';
     }
     else if (playerSelection === 'rock' && computerSelection === 'scissors' ||
         playerSelection === 'paper' && computerSelection === 'rock' ||
         playerSelection === 'scissors' && computerSelection === 'paper') {
             playerScore++;
-            roundWinner = 'player';
+            roundWinner = 'You won this round!';
+            if (playerScore === 5) {
+                roundWinner = 'You won the game! Reload the page to play again.';
+                disableButtons();
+            }
         }
     else {
         computerScore++;
-        roundWinner = 'computer';
+        roundWinner = 'The computer won this round.';
+        if (computerScore === 5) {
+            roundWinner = 'The computer won the game. Reload the page to play again.';
+            disableButtons();
+        }
     }
-    console.log(playerSelection);
-    console.log(computerSelection);
-    console.log(roundWinner);
-    console.log(playerScore);
-    console.log(computerScore);
+    scoreInfo.innerHTML = `${roundWinner}`;
+    scoreMessage.innerHTML = `${roundMessage}`;
+    playerScoreDisplay.innerHTML = `Player: ${playerScore}`;
+    computerScoreDisplay.innerHTML = `Computer: ${computerScore}`;
+}
+
+function updateSign(playerSelection, computerSelection) {
+    switch (playerSelection) {
+        case 'rock': 
+            playerSign.textContent = '✊'
+            break
+        case 'paper':
+            playerSign.textContent = '✋'
+            break
+        case 'scissors':
+            playerSign.textContent = '✌️';
+            break
+    }
+    switch (computerSelection) {
+        case 'rock': 
+            computerSign.textContent = '✊'
+            break
+        case 'paper':
+            computerSign.textContent = '✋'
+            break
+        case 'scissors':
+            computerSign.textContent = '✌️';
+            break
+    }
 }
 
 buttons.forEach(button => {

@@ -37,8 +37,8 @@ h1, h2, h3 {
 }
 
 .btn {
-    width: 2em;
-    height: 2em;
+    min-width: 2em;
+    min-height: 2em;
     font-size: 5rem;
     border-radius: .125em;
 }
