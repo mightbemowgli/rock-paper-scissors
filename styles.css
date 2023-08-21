@@ -7,6 +7,11 @@ h1, h2, h3 {
     text-align: center;
 }
 
+.title {
+    font-size: 3rem;
+    margin-bottom: 0;
+}
+
 .score-container {
     display: flex;
     max-width: 800px;
