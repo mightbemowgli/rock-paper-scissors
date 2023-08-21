@@ -3,89 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <h1>Rock Paper Scissors</h1>
-    <h2>Choose your weapon:</h2>
-    <div class="buttons">
-        <button class="btn" id="rock"><span>&#9994;</span></button>
-        <button class="btn" id="paper"><span>&#9995;</span></button>
-        <button class="btn" id="scissors"><span>✌️</span></button>
-    </div>
-    <script>
-// use prompt to receive playerSelection input
-// playerSelection parameter should be case insensitive
-function getUserChoice() {
-    let playerSelection = prompt("Choose your weapon.");
-    playerSelection = playerSelection.toLowerCase();
-    if (playerSelection === 'rock' ||
-        playerSelection === 'paper' ||
-        playerSelection === 'scissors') {
-            return playerSelection;
-        } else {
-            console.log('Please choose rock, paper, or scissors.');
-        }
-}
-// console.log(getUserChoice());
-
-// create function getComputerChoice that returns rock, paper, or scissors
-function getComputerChoice() {
-    computerSelection = Math.floor(Math.random() * 3);
-    if (computerSelection === 0) {
-        return 'rock';
-    } else if (computerSelection === 1) {
-        return 'paper';
-    } else if (computerSelection === 2) {
-        return 'scissors';
-    }
-}
-// console.log(getComputerChoice());
-
-// create function playRound that plays a single round 
-// use two parameters - playerSelection and computerSelection
-// return a string that declares the winner
-// return the results of the function
-function determineWinner(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
-        return 'The game is a tie.';
-    }
-    if (playerSelection === 'rock') {
-        if (computerSelection === 'paper') {
-            return 'The computer won.';
-        } else {
-            return 'You won!';
-        }
-    }
-    if (playerSelection === 'paper') {
-        if (computerSelection === 'scissors') {
-            return 'The computer won.';
-        } else {
-            return 'You won!';
-        }
-    }
-    if (playerSelection === 'scissors') {
-        if (computerSelection === 'rock') {
-            return 'The computer won.';
-        } else {
-            return 'You won!';
-        }
-    }
-}
-
-function playRound() {
-    let playerSelection = getUserChoice();
-    let computerSelection = getComputerChoice();
-    console.log('You picked: ' + playerSelection);
-    console.log('The computer picked: ' + computerSelection);
-    console.log(determineWinner(playerSelection, computerSelection));
-}
-
-playRound();
-    </script>
+    <header class="header">
+        <h1 class="title">Rock Paper Scissors</h1>
+    </header>
+    <main class="main">
+        <div class="scoreboard">        
+            <h2>Choose your weapon:</h2>
+            <h3>First to five points wins!</h3>
+            <div class="score-container">
+                <div class="scorebox">
+                    <div class="sign" id="playerSign">?</div>
+                    <p class="score" id="playerScore">Player: 0</p>
+                </div>
+                <div class="scorebox">
+                    <div class="sign" id="computerSign">?</div>
+                    <p class="score" id="computerScore">Computer: 0</p>
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="btn" id="rock"><span>&#9994;</span></button>
+            <button class="btn" id="paper"><span>&#9995;</span></button>
+            <button class="btn" id="scissors"><span>✌️</span></button>
+        </div>
+    </main>
+<script src="script.js"></script>
 </body>
 </html>

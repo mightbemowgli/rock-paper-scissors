@@ -1,20 +1,44 @@
-body {
-    font-family: 'Noto Emoji', sans-serif;
+body, html {
+    margin: 0;
+    padding: 0;
 }
 
-h1, h2 {
+h1, h2, h3 {
     text-align: center;
+}
+
+.score-container {
+    display: flex;
+    max-width: 800px;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 2em;
+}
+
+.scorebox {
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.sign {
+    font-size: 5rem;
 }
 
 .buttons {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 2em auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 2em;
 }
 
 .btn {
     width: 2em;
     height: 2em;
     font-size: 5rem;
+    border-radius: .125em;
 }
